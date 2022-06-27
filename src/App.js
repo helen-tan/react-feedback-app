@@ -4,8 +4,14 @@
 
 function App() {
   // return JSX, a syntax that allows us to have syntactic sugar for putting HTML in JS
+  // We can only return 1 main parent element
+  // But if we don't want a wrapping div, so we can return an empty parent fragment <>
   return (
-    <h1>Hello from the app component</h1>
+    // In JSX, class is a reserved keyword. We use className
+    // In forms, for attribute in JSX is htmlFor
+    <div className = 'container'>
+      <h1>My App</h1>
+    </div>
   )
 }
 
