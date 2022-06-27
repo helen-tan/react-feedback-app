@@ -1,11 +1,15 @@
+import { useState } from 'react';
 import Header from "./components/Header"
-import FeedbackItem from "./components/FeedbackItem"
+import FeedbackList from "./components/FeedbackList"
+import FeedbackData from './data/FeedbackData';
 
 // Components can be either classes or functions
 // classes - old school way of creating components
 // functions - newer way, functional components. Uses Hooks & states
 
 function App() {
+  const [feedback, setFeedback] = useState(FeedbackData);
+
   // return JSX, a syntax that allows us to have syntactic sugar for putting HTML in JS
   // We can only return 1 main parent element
   // But if we don't want a wrapping div, so we can return an empty parent fragment <>
@@ -16,7 +20,7 @@ function App() {
     <>
       <Header />
       <div className = 'container'>
-        <FeedbackItem/>
+        <FeedbackList feedback={feedback}/>
       </div>
     </>
   )
