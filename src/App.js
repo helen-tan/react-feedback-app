@@ -1,25 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
+// Compoennts can be either classes or functions
+// classes - old school way of creating components
+// functions - newer way, functional components. Uses Hooks & states
 
 function App() {
+  // return JSX, a syntax that allows us to have syntactic sugar for putting HTML in JS
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <h1>Hello from the app component</h1>
+  )
 }
 
 export default App;
