@@ -2,9 +2,14 @@ import PropTypes from 'prop-types'
 
 // When we pass a prop to a component, we need to catch it in the parameters: function Header(props)
 // destructure it with curly braces
-function Header({ text }) {
+function Header({ text, bgColor, textColor }) {
+  const headerStyles = {
+    backgroundColor: bgColor,
+    color: textColor
+  }
+
   return (
-    <header>
+    <header style={headerStyles}>
       <div className="container">
         <h2>{text}</h2>
       </div>
@@ -14,12 +19,16 @@ function Header({ text }) {
 
 // When no props are passed in, it will use whatever the deafult is
 Header.defaultProps = {
-  text: 'Feedback UI'
+  text: 'Feedback UI',
+  bgColor: 'rgba(0, 0, 0, 0.4)',
+  textColor: '#ff6a95'
 }
 
 // Type checking for props passed in
 Header.propTypes = {
-  text: PropTypes.string
+  text: PropTypes.string,
+  bgColor: PropTypes.string,
+  textColor: PropTypes.string
 }
 
 export default Header
