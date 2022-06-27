@@ -1,4 +1,5 @@
 import Header from "./components/Header"
+import FeedbackItem from "./components/FeedbackItem"
 
 // Components can be either classes or functions
 // classes - old school way of creating components
@@ -13,10 +14,10 @@ function App() {
     // In JSX, class is a reserved keyword. We use className
     // In forms, for attribute in JSX is htmlFor
     <>
-    <Header />
-    <div className = 'container'>
-      <h1>My App</h1>
-    </div>
+      <Header />
+      <div className = 'container'>
+        <FeedbackItem/>
+      </div>
     </>
   )
 }
