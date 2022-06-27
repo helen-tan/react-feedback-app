@@ -15,6 +15,21 @@ function App() {
     { id: 3, text: 'Comment three'}
   ];
 
+  // For returning JSX based on a specific condition
+  const loading = true;
+  const showComments = true;
+
+  const commentBlock = (
+    <div className='comments'>
+    <h3>Comments ({comments.length})</h3>
+    <ul>
+      {comments.map((comment, index) => {
+        <li key={index}>{comment.text}</li>
+      })}
+    </ul>
+  </div>
+  )
+
   return (
     // In JSX, class is a reserved keyword. We use className
     // In forms, for attribute in JSX is htmlFor
@@ -22,14 +37,8 @@ function App() {
       <h1>{title.toUpperCase()}</h1>
       <p>{body}</p>
 
-      <div className='comments'>
-        <h3>Comments ({comments.length})</h3>
-        <ul>
-          {comments.map((comment, index) => {
-            <li key={index}>{comment.text}</li>
-          })}
-        </ul>
-      </div>
+      {/* If showComments is true show this: */}
+      {showComments && commentBlock}
     </div>
   )
 }
