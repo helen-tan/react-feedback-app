@@ -4,7 +4,8 @@ import Button from "./shared/Button"
 
 function FeedbackForm() {
   // When we have a form, we typically have a component-level state for each input
-  const [text, setText] = useState('');
+  const [text, setText] = useState('')
+  const [rating, setRating] = useState(10)
   const [btnDisabled, setBtnDisabled] = useState(true) // true by default - btn should be disabled when page first loads
   const [message, setMessage] = useState('')
 
