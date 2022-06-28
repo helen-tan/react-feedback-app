@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import Card from "./shared/Card"
+import Button from "./shared/Button"
 
 function FeedbackForm() {
   // When we have a form, we typically have a component-level state for each input
@@ -23,7 +24,7 @@ function FeedbackForm() {
             placeholder="Write a review"
             value={text}
             />
-          <button type="submit">Send</button>
+          <Button type="submit">Send</Button>
         </div>
       </form>
     </Card>
