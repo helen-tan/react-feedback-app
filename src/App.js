@@ -19,6 +19,10 @@ function App() {
     }
   };
 
+  const addFeedback = (newFeedback) => {
+    console.log(newFeedback)
+  }
+
   // return JSX, a syntax that allows us to have syntactic sugar for putting HTML in JS
   // We can only return 1 main parent element
   // But if we don't want a wrapping div, so we can return an empty parent fragment <>
@@ -29,7 +33,7 @@ function App() {
     <>
       <Header />
       <div className = 'container'>
-        <FeedbackForm />
+        <FeedbackForm handleAdd={addFeedback}/>
         <FeedbackStats feedback={feedback}/>
         <FeedbackList feedback={feedback}
         handleDelete = {deleteFeedback} />

@@ -3,7 +3,7 @@ import RatingSelect from './RatingSelect'
 import Card from "./shared/Card"
 import Button from "./shared/Button"
 
-function FeedbackForm() {
+function FeedbackForm({ handleAdd }) {
   // When we have a form, we typically have a component-level state for each input
   const [text, setText] = useState('')
   const [rating, setRating] = useState(10)
@@ -29,9 +29,26 @@ function FeedbackForm() {
     setText(e.target.value);
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    // validation
+    if(text.trim().length > 10) {
+      const newFeedback = {
+        text: text,
+        rating: rating
+      }
+
+      // pass newFeedback up to App.js via handleAdd prop
+      handleAdd(newFeedback)
+
+      // After submitting, set the text to an empty string
+      setText('')
+    }
+  }
+
   return (
     <Card>
-      <form>
+      <form onSubmit={handleSubmit}>
         <h2>How would you rate your service with us?</h2>
 
         <RatingSelect select={(rating) => setRating(rating)} />
