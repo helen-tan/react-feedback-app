@@ -5,8 +5,11 @@ import Button from "./shared/Button"
 function FeedbackForm() {
   // When we have a form, we typically have a component-level state for each input
   const [text, setText] = useState('');
-  // connect the state to the input value - use event listener onChange in the input
+  const [btnDisabled, setBtnDisabled] = useState(true) // true by default - btn should be disabled when page first loads
+  const [message, setMessage] = useState('')
 
+
+  // connect the state to the input value - use event listener onChange in the input
   // create onChange event handler - handleTextChange: changes the 'text' state
   const handleTextChange = (e) => {
     setText(e.target.value);
