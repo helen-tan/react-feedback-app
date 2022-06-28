@@ -6,7 +6,7 @@ function RatingSelect({ select }) {
   // Update selected state to whatevers thats clicked
   const handleChange = (e) => {
     setSelected(+e.currentTarget.value)
-    // pass the value in the selected state, up to the Feedback form component via the select function (a prop)
+    // pass the value in the selected state, up to the Feedback form component via the select function (a propo)
     select(+e.currentTarget.value)
   }
 
