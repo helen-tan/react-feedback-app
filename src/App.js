@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState } from 'react'
 import Header from "./components/Header"
 import FeedbackList from "./components/FeedbackList"
-import FeedbackData from './data/FeedbackData';
+import FeedbackStats from "./components/FeedbackStats"
+import FeedbackData from './data/FeedbackData'
 
 // Components can be either classes or functions
 // classes - old school way of creating components
@@ -27,6 +28,7 @@ function App() {
     <>
       <Header />
       <div className = 'container'>
+        <FeedbackStats feedback={feedback}/>
         <FeedbackList feedback={feedback}
         handleDelete = {deleteFeedback} />
       </div>
