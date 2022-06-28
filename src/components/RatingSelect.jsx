@@ -1,11 +1,13 @@
 import { useState } from 'react'
 
-function RatingSelect() {
+function RatingSelect({ select }) {
   const [selected, setSelected] = useState(10)
 
   // Update selected state to whatevers thats clicked
   const handleChange = (e) => {
     setSelected(+e.currentTarget.value)
+    // pass the value in the selected state, up to the Feedback form component via the select function (a prop)
+    select(+e.currentTarget.value)
   }
 
   return (
