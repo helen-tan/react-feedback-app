@@ -23,7 +23,9 @@ function App() {
   const addFeedback = (newFeedback) => {
     // add an id wo the newFeedback object with uuid package
     newFeedback.id = uuidv4()
-    console.log(newFeedback)
+    setFeedback([newFeedback, ...feedback])
+    // As state is immutable, we cannot just push on to it
+    // We need to get the current items and put it into a new array for overriding
   }
 
   // return JSX, a syntax that allows us to have syntactic sugar for putting HTML in JS
