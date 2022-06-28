@@ -5,6 +5,7 @@ import FeedbackList from "./components/FeedbackList"
 import FeedbackStats from "./components/FeedbackStats"
 import FeedbackForm from "./components/FeedbackForm"
 import FeedbackData from './data/FeedbackData'
+import AboutPage from './pages/AboutPage'
 
 // Components can be either classes or functions
 // classes - old school way of creating components
