@@ -4,7 +4,8 @@ import { createContext, useState } from 'react'
 const FeedbackContext = createContext()
 
 // Create provider - used for wrapping whatever components that need access to the state and context
-export const FeedbackProvider = (children) => {
+export const FeedbackProvider = ( {children} ) => {
+  // state
   const [feedback, setFeedback] = useState([
     {
       id: 1,
@@ -13,6 +14,7 @@ export const FeedbackProvider = (children) => {
     }
   ])
 
+  // Whatever in value is the state that can be accessed from this Context
   return <FeedbackContext.Provider value={{
     feedback: feedback
   }}>
