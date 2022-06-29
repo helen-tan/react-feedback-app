@@ -1,14 +1,19 @@
-import {useState} from 'react'
+import { useState, useContext } from 'react'
 import RatingSelect from './RatingSelect'
 import Card from "./shared/Card"
 import Button from "./shared/Button"
+import FeedbackContext from '../context/FeedbackContext'
 
-function FeedbackForm({ handleAdd }) {
+function FeedbackForm() {
   // When we have a form, we typically have a component-level state for each input
   const [text, setText] = useState('')
   const [rating, setRating] = useState(10)
   const [btnDisabled, setBtnDisabled] = useState(true) // true by default - btn should be disabled when page first loads
   const [message, setMessage] = useState('')
+
+  // access addFeedback function from context
+  const { addFeedback } = useContext(FeedbackContext)
+
 
   // connect the state to the input value - use event listener onChange in the input
   // create onChange event handler - handleTextChange
@@ -39,7 +44,7 @@ function FeedbackForm({ handleAdd }) {
       }
 
       // pass newFeedback up to App.js via handleAdd prop
-      handleAdd(newFeedback)
+      addFeedback(newFeedback)
 
       // After submitting, set the text to an empty string
       setText('')

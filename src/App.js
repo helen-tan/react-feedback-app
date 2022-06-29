@@ -1,11 +1,9 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import { useState } from 'react'
 import Header from "./components/Header"
 import FeedbackList from "./components/FeedbackList"
 import FeedbackStats from "./components/FeedbackStats"
 import FeedbackForm from "./components/FeedbackForm"
 import AboutIconLink from './components/AboutIconLink'
-import FeedbackData from './data/FeedbackData'
 import AboutPage from './pages/AboutPage'
 import { FeedbackProvider } from './context/FeedbackContext'
 
@@ -14,9 +12,6 @@ import { FeedbackProvider } from './context/FeedbackContext'
 // functions - newer way, functional components. Uses Hooks & states
 
 function App() {
-  // Global state - feedback
-  const [feedback, setFeedback] = useState(FeedbackData);
-
   // return JSX, a syntax that allows us to have syntactic sugar for putting HTML in JS
   // We can only return 1 main parent element
   // But if we don't want a wrapping div, so we can return an empty parent fragment <>
@@ -31,7 +26,7 @@ function App() {
           <Routes>
             <Route exact path='/' element={
               <>
-                <FeedbackForm handleAdd={addFeedback}/>
+                <FeedbackForm />
                 <FeedbackStats />
                 <FeedbackList />
               </>
