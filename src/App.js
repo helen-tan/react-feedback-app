@@ -8,6 +8,7 @@ import FeedbackForm from "./components/FeedbackForm"
 import AboutIconLink from './components/AboutIconLink'
 import FeedbackData from './data/FeedbackData'
 import AboutPage from './pages/AboutPage'
+import { FeedbackProvider } from './context/FeedbackContext'
 
 // Components can be either classes or functions
 // classes - old school way of creating components
@@ -40,26 +41,28 @@ function App() {
   return (
     // In JSX, class is a reserved keyword. We use className
     // In forms, for attribute in JSX is htmlFor
-    <Router>
-      <Header />
-      <div className = 'container'>
-        <Routes>
-          <Route exact path='/' element={
-            <>
-              <FeedbackForm handleAdd={addFeedback}/>
-              <FeedbackStats feedback={feedback}/>
-              <FeedbackList feedback={feedback}
-              handleDelete = {deleteFeedback} />
-            </>
-          }>
-          </Route>
+    <FeedbackProvider>
+      <Router>
+        <Header />
+        <div className = 'container'>
+          <Routes>
+            <Route exact path='/' element={
+              <>
+                <FeedbackForm handleAdd={addFeedback}/>
+                <FeedbackStats feedback={feedback}/>
+                <FeedbackList feedback={feedback}
+                handleDelete = {deleteFeedback} />
+              </>
+            }>
+            </Route>
 
-          {/* To create a route, use the Route component */}
-          <Route path='/about' element={ <AboutPage/> } />
-        </Routes>
-        <AboutIconLink />
-      </div>
-    </ Router>
+            {/* To create a route, use the Route component */}
+            <Route path='/about' element={ <AboutPage/> } />
+          </Routes>
+          <AboutIconLink />
+        </div>
+      </ Router>
+    </FeedbackProvider>
   )
 }
 
