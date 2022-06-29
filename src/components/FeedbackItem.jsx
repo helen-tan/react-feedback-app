@@ -1,8 +1,12 @@
-import { FaTimes } from 'react-icons/fa';
-import PropTypes from 'prop-types';
-import Card from './shared/Card';
+import { FaTimes } from 'react-icons/fa'
+import { useContext } from 'react'
+import PropTypes from 'prop-types'
+import Card from './shared/Card'
+import FeedbackContext from '../context/FeedbackContext'
 
-function FeedbackItem({ item, handleDelete }) {
+function FeedbackItem({ item }) {
+  const {deleteFeedback} = useContext(FeedbackContext)
+
   // useState is a function and it takes whatever default we want for that piece of state
   // [] is destructuring whatever array the useState function returns
   // There are 2 things we need to put in the []
@@ -17,7 +21,7 @@ function FeedbackItem({ item, handleDelete }) {
     <Card>
       <div className="num-display">{item.rating}</div>
 
-      <button onClick={() => handleDelete(item.id)} className="close">
+      <button onClick={() => deleteFeedback(item.id)} className="close">
         <FaTimes color='purple'/>
       </button>
 

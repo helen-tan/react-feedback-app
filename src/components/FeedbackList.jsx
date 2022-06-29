@@ -3,7 +3,8 @@ import { useContext } from 'react'
 import FeedbackItem from "./FeedbackItem"
 import FeedbackContext from '../context/FeedbackContext'
 
-function FeedbackList({ handleDelete }) {
+function FeedbackList() {
+  // When we want to use any global state/ functions in a context, use useContext hook
   // Extract what we want from the Feedback Context with useContext Hook
   const { feedback } = useContext(FeedbackContext)
 
@@ -25,7 +26,6 @@ function FeedbackList({ handleDelete }) {
             <FeedbackItem
             key={item.id}
             item={item}
-            handleDelete={handleDelete}
             />
           </motion.div>
         })}
