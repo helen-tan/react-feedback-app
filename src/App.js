@@ -14,8 +14,10 @@ import AboutPage from './pages/AboutPage'
 // functions - newer way, functional components. Uses Hooks & states
 
 function App() {
+  // Global state - feedback
   const [feedback, setFeedback] = useState(FeedbackData);
 
+  // Functions for manipulating the feedback state
   // deleteFeedback is here in App.js bcos here is where we have our feedback state and setFeedback function
   const deleteFeedback = (id) => {
     if(window.confirm('Are you sure you want to delete?')) {
