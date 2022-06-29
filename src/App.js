@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from 'uuid'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { useState } from 'react'
 import Header from "./components/Header"
@@ -17,15 +16,6 @@ import { FeedbackProvider } from './context/FeedbackContext'
 function App() {
   // Global state - feedback
   const [feedback, setFeedback] = useState(FeedbackData);
-
-
-  const addFeedback = (newFeedback) => {
-    // add an id wo the newFeedback object with uuid package
-    newFeedback.id = uuidv4()
-    setFeedback([newFeedback, ...feedback])
-    // As state is immutable, we cannot just push on to it
-    // We need to get the current items and put it into a new array for overriding
-  }
 
   // return JSX, a syntax that allows us to have syntactic sugar for putting HTML in JS
   // We can only return 1 main parent element

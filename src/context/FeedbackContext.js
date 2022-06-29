@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid'
 import { createContext, useState } from 'react'
 
 // Create context
@@ -21,11 +22,19 @@ export const FeedbackProvider = ( {children} ) => {
     }
   };
 
+  const addFeedback = (newFeedback) => {
+    // add an id wo the newFeedback object with uuid package
+    newFeedback.id = uuidv4()
+    setFeedback([newFeedback, ...feedback])
+    // As state is immutable, we cannot just push on to it
+    // We need to get the current items and put it into a new array for overriding
+  }
 
   // Whatever in value is the state that can be accessed from this Context
   return <FeedbackContext.Provider value={{
     feedback: feedback,
-    deleteFeedback: deleteFeedback
+    deleteFeedback: deleteFeedback,
+    addFeedback: addFeedback
   }}>
     {children} {/*Whatever child components that are wrapped and passed in that need access to this context */}
   </FeedbackContext.Provider>
