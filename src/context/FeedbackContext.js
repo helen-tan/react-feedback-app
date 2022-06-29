@@ -14,9 +14,18 @@ export const FeedbackProvider = ( {children} ) => {
     }
   ])
 
+  // Functions for manipulating the feedback state
+  const deleteFeedback = (id) => {
+    if(window.confirm('Are you sure you want to delete?')) {
+      setFeedback(feedback.filter((item) => item.id !== id)); // filter out the item we wanna delete, return array without it
+    }
+  };
+
+
   // Whatever in value is the state that can be accessed from this Context
   return <FeedbackContext.Provider value={{
-    feedback: feedback
+    feedback: feedback,
+    deleteFeedback: deleteFeedback
   }}>
     {children} {/*Whatever child components that are wrapped and passed in that need access to this context */}
   </FeedbackContext.Provider>
