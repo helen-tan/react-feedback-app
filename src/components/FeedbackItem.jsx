@@ -5,7 +5,7 @@ import Card from './shared/Card'
 import FeedbackContext from '../context/FeedbackContext'
 
 function FeedbackItem({ item }) {
-  const {deleteFeedback} = useContext(FeedbackContext)
+  const { deleteFeedback, editFeedback } = useContext(FeedbackContext)
 
   // useState is a function and it takes whatever default we want for that piece of state
   // [] is destructuring whatever array the useState function returns
@@ -25,7 +25,7 @@ function FeedbackItem({ item }) {
         <FaTimes color='purple'/>
       </button>
 
-      <button className="edit">
+      <button onClick={() => editFeedback(item)} className="edit">
         <FaEdit color='purple' />
       </button>
 
