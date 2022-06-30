@@ -1,4 +1,21 @@
-# Getting Started with Create React App
+# React Feedback App
+
+This is a project from Brad Traversy's React Front To Back 2022 course. It allows users to add, update and delete feedback. It uses a mock REST api with json-server.
+
+Deployed with Heroku: https://feedback-react-app-prac.herokuapp.com/
+
+This project goes over the fundamentals of React including...
+
+* Components
+* JSX
+* Props (proptypes, defaultprops, etc)
+* State (Component & App Level)
+* Styling
+* Handling Events
+* Lists & Keys
+* Forms
+* Context API
+* HTTP Requests
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
