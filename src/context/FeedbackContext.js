@@ -54,13 +54,25 @@ export const FeedbackProvider = ( {children} ) => {
     // We need to get the current items and put it into a new array for overriding
   }
 
+  // Update feedback item
+  const updateFeedback = (id, updItem) => {
+    setFeedback(feedback.map((item) => {
+      if (item.id === id) {
+        return { ...item, ...updItem }
+      } else {
+        return item
+      }
+    }))
+  }
+
   // Whatever in value is the state that can be accessed from this Context
   return <FeedbackContext.Provider value={{
     feedback: feedback,
+    feedbackEdit: feedbackEdit,
     deleteFeedback: deleteFeedback,
     addFeedback: addFeedback,
     editFeedback: editFeedback,
-    feedbackEdit: feedbackEdit
+    updateFeedback: updateFeedback
   }}>
     {children} {/*Whatever child components that are wrapped and passed in that need access to this context */}
   </FeedbackContext.Provider>

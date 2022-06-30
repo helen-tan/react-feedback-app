@@ -12,7 +12,7 @@ function FeedbackForm() {
   const [message, setMessage] = useState('')
 
   // access addFeedback function from context
-  const { addFeedback, feedbackEdit } = useContext(FeedbackContext)
+  const { addFeedback, feedbackEdit, updateFeedback } = useContext(FeedbackContext)
 
   // useEffect takes a callback and a 2nd arg - an array of dependencies
   // if smth in the array changes, useEffect will run the callback, an emoty [] will just run when the component loads
@@ -54,8 +54,11 @@ function FeedbackForm() {
         rating: rating
       }
 
-      // pass newFeedback up to App.js via handleAdd prop
-      addFeedback(newFeedback)
+      if (feedbackEdit.edit === true) {
+        updateFeedback(feedbackEdit.item.id, newFeedback)
+      } else {
+        addFeedback(newFeedback)
+      }
 
       // After submitting, set the text to an empty string
       setText('')
