@@ -25,6 +25,20 @@ export const FeedbackProvider = ( {children} ) => {
     },
   ])
 
+  // State for the feedback that is being edited
+  const [feedbackEdit, setFeedbackEdit] = useState({
+    item: {},
+    edit: false
+  })
+
+  // Set item to be updated
+  const editFeedback = (item) => {
+    setFeedbackEdit({
+      item,
+      edit: true
+    });
+  }
+
   // Functions for manipulating the feedback state
   const deleteFeedback = (id) => {
     if(window.confirm('Are you sure you want to delete?')) {
@@ -44,7 +58,8 @@ export const FeedbackProvider = ( {children} ) => {
   return <FeedbackContext.Provider value={{
     feedback: feedback,
     deleteFeedback: deleteFeedback,
-    addFeedback: addFeedback
+    addFeedback: addFeedback,
+    editFeedback: editFeedback
   }}>
     {children} {/*Whatever child components that are wrapped and passed in that need access to this context */}
   </FeedbackContext.Provider>
