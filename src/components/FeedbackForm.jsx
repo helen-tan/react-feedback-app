@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import RatingSelect from './RatingSelect'
 import Card from "./shared/Card"
 import Button from "./shared/Button"
@@ -14,6 +14,17 @@ function FeedbackForm() {
   // access addFeedback function from context
   const { addFeedback, feedbackEdit } = useContext(FeedbackContext)
 
+  // useEffect takes a callback and a 2nd arg - an array of dependencies
+  // if smth in the array changes, useEffect will run the callback, an emoty [] will just run when the component loads
+  useEffect(() => {
+    // set text & rating state
+    // set btn to enabled
+    if (feedbackEdit.edit === true) {
+      setBtnDisabled(false)
+      setText(feedbackEdit.item.text)
+      setRating(feedbackEdit.item.rating)
+    }
+  }, [feedbackEdit])
 
   // connect the state to the input value - use event listener onChange in the input
   // create onChange event handler - handleTextChange
