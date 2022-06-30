@@ -59,7 +59,8 @@ export const FeedbackProvider = ( {children} ) => {
     feedback: feedback,
     deleteFeedback: deleteFeedback,
     addFeedback: addFeedback,
-    editFeedback: editFeedback
+    editFeedback: editFeedback,
+    feedbackEdit: feedbackEdit
   }}>
     {children} {/*Whatever child components that are wrapped and passed in that need access to this context */}
   </FeedbackContext.Provider>

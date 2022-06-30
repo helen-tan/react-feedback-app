@@ -12,7 +12,7 @@ function FeedbackForm() {
   const [message, setMessage] = useState('')
 
   // access addFeedback function from context
-  const { addFeedback } = useContext(FeedbackContext)
+  const { addFeedback, feedbackEdit } = useContext(FeedbackContext)
 
 
   // connect the state to the input value - use event listener onChange in the input
