@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from 'uuid'
 import { createContext, useState, useEffect } from 'react'
 
 // Create context
@@ -44,10 +43,19 @@ export const FeedbackProvider = ( {children} ) => {
     }
   };
 
-  const addFeedback = (newFeedback) => {
-    // add an id wo the newFeedback object with uuid package
-    newFeedback.id = uuidv4()
-    setFeedback([newFeedback, ...feedback])
+  const addFeedback = async (newFeedback) => {
+    // Add to backend
+    const response = await fetch('/feedback', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newFeedback)
+    })
+
+    const data = await response.json()
+
+    setFeedback([data, ...feedback])
     // As state is immutable, we cannot just push on to it
     // We need to get the current items and put it into a new array for overriding
   }
