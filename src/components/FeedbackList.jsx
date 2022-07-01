@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useContext } from 'react'
 import FeedbackItem from "./FeedbackItem"
 import FeedbackContext from '../context/FeedbackContext'
+import Spinner from "./shared/Spinner"
 
 function FeedbackList() {
   // When we want to use any global state/ functions in a context, use useContext hook
@@ -13,7 +14,9 @@ function FeedbackList() {
     return <p>No Feedback Yet</p>
   }
 
-  return isLoading ? <h3>Loading...</h3> : (
+  return isLoading ? (
+    <Spinner />
+  ) : (
     <div className="feedback-list">
       <AnimatePresence>
         {feedback.map((item) => {
