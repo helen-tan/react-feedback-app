@@ -6,6 +6,7 @@ const FeedbackContext = createContext()
 
 // Create provider - used for wrapping whatever components that need access to the state and context
 export const FeedbackProvider = ( {children} ) => {
+  const [isLoading, setIsLoading] = useState(true)
   // state
   const [feedback, setFeedback] = useState([])
 
@@ -24,7 +25,8 @@ export const FeedbackProvider = ( {children} ) => {
     const response = await fetch("http://localhost:5000/feedback?_sort=id&_order=desc")
     const data = await response.json()
 
-    setFeedback(data);
+    setFeedback(data)
+    setIsLoading(false)
   }
 
   // Set item to be updated
@@ -65,6 +67,7 @@ export const FeedbackProvider = ( {children} ) => {
   return <FeedbackContext.Provider value={{
     feedback: feedback,
     feedbackEdit: feedbackEdit,
+    isLoading: isLoading,
     deleteFeedback: deleteFeedback,
     addFeedback: addFeedback,
     editFeedback: editFeedback,
