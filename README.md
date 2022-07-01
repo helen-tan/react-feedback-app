@@ -1,6 +1,6 @@
 # React Feedback App
 
-This is a project from Brad Traversy's React Front To Back 2022 course. It allows users to add, update and delete feedback. It uses a mock REST api with json-server.
+This is a project from Brad Traversy's React Front To Back 2022 course. It allows users to add, update and delete feedback. It uses a mock REST api with [json-server](https://www.npmjs.com/package/json-server).
 
 Deployed with Heroku: https://feedback-react-app-prac.herokuapp.com/
 
