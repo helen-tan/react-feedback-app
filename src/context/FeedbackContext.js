@@ -37,8 +37,11 @@ export const FeedbackProvider = ( {children} ) => {
   }
 
   // Functions for manipulating the feedback state
-  const deleteFeedback = (id) => {
+  const deleteFeedback = async (id) => {
     if(window.confirm('Are you sure you want to delete?')) {
+      // Make a delete req (for backend)
+      await fetch(`/feedback/${id}`, { method: 'DELETE' })
+
       setFeedback(feedback.filter((item) => item.id !== id)); // filter out the item we wanna delete, return array without it
     }
   };
